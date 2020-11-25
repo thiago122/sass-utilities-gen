@@ -1,0 +1,25 @@
+$breakponts: (
+    sm: 768px,
+    md: 1024px, 
+);
+
+// ---------------------------------------------------
+// MARGIN
+// ---------------------------------------------------
+
+$margin: (
+    10: 10px, 
+);
+
+$margin-config: (
+    prefix: ('m-','mt-','mx-'),
+    properties: ('margin', 'margin-top', ('margin-left','margin-right') ),
+    values: $margin,
+    breakponts: $breakponts,
+    variants: ('focus','hover'),
+    resposnive-variants: ('focus'),
+);
+
+@include gen($margin-config);
+
+

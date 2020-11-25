@@ -1,0 +1,122 @@
+
+@mixin gen($config){
+
+    $values         : map-get($config, 'values');
+    $breakpoints    : map-get($config, 'breakponts');
+    $variants       : map-get($config, 'variants');
+    $resposnive-variants   : map-get($config, 'resposnive-variants');
+    $separator: '\\:';
+
+    $prefixes    : map-get($config, 'prefix');
+    $cssProperties : map-get($config, 'properties');
+
+    @for $i from 1 through length($prefixes) {
+
+        $prefix: nth($prefixes, $i);
+        $properties: nth($cssProperties, $i);;
+
+        // NON RESPONSIVE
+        @each $valueKey, $value in $values {
+            .#{$prefix}#{$valueKey}{
+
+                @each $property in $properties {
+                    #{$property}: $value !important ;
+
+                }
+            }
+        }
+    }
+
+    @for $i from 1 through length($prefixes) {
+
+        $prefix: nth($prefixes, $i);
+        $properties: nth($cssProperties, $i);;
+        // NON RESPONSIVE WITH VARIANTS
+        @if($variants){
+
+            @each $variant in $variants {
+
+                // NON RESPONSIVE WITH VARIANTS
+                @each $valueKey, $value in $values {
+                    .#{$variant}#{$separator}#{$prefix}#{$valueKey}:#{$variant}{
+
+                        @each $property in $properties {
+                            #{$property}: $value !important ;
+
+                        }
+                    
+                    }
+
+                }
+
+            }
+
+        }
+    }
+
+    //  RESPONSIVE
+    @if($breakpoints){
+         
+        @each $breakPointKey, $bkValue in $breakpoints {
+            
+            @media (min-width: $bkValue) {
+
+                // -------------------------------------------
+                @for $i from 1 through length($prefixes) {
+
+                    $prefix: nth($prefixes, $i);
+                    $properties: nth($cssProperties, $i);
+
+                    @each $valueKey, $value in $values {
+                        .#{$breakPointKey}#{$separator}#{$prefix}#{$valueKey}{
+                            @each $property in $properties {
+                                #{$property}: $value !important ;
+                                
+                            }
+                        
+                        }
+
+                    }
+
+                }// endfor
+
+                // -------------------------------------------
+
+                // //  RESPONSIVE WITH VARIANTS
+                @if($resposnive-variants){
+
+                    @debug('PASSEI 2');
+
+                    @each $variant in $resposnive-variants {
+
+                        @for $i from 1 through length($prefixes) {
+
+                            $prefix: nth($prefixes, $i);
+                            $properties: nth($cssProperties, $i);
+
+                            @each $valueKey, $value in $values {
+                                
+                                .#{$breakPointKey}#{$separator}#{$variant}#{$separator}#{$prefix}#{$valueKey}:#{$variant}{
+                                    
+                                    @each $property in $properties {
+                                        #{$property}: $value !important ;
+                                    } // close each
+
+                                } // close class
+                            
+                            } // close each
+                            
+                        } // close for
+
+                    } // @each $variant
+                
+                } // @if(
+
+            } // @media
+
+        }  // @each $breakPointKey
+
+    } // @if($breakpoints
+
+}
+

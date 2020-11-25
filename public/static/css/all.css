@@ -1,0 +1,11 @@
+.m-10 {
+  margin: 10px !important; }
+
+.mt-10 {
+  margin-top: 10px !important; }
+
+@media (min-width: 768px) {
+  .sm\:m-10 {
+    margin: 10px !important; }
+  .sm\:mt-10 {
+    margin-top: 10px !important; } }
