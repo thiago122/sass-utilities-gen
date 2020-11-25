@@ -4,8 +4,53 @@
 .mt-10 {
   margin-top: 10px !important; }
 
+.mx-10 {
+  margin-left: 10px !important;
+  margin-right: 10px !important; }
+
+.focus\:m-10:focus {
+  margin: 10px !important; }
+
+.hover\:m-10:hover {
+  margin: 10px !important; }
+
+.focus\:mt-10:focus {
+  margin-top: 10px !important; }
+
+.hover\:mt-10:hover {
+  margin-top: 10px !important; }
+
+.focus\:mx-10:focus {
+  margin-left: 10px !important;
+  margin-right: 10px !important; }
+
+.hover\:mx-10:hover {
+  margin-left: 10px !important;
+  margin-right: 10px !important; }
+
 @media (min-width: 768px) {
   .sm\:m-10 {
     margin: 10px !important; }
   .sm\:mt-10 {
-    margin-top: 10px !important; } }
+    margin-top: 10px !important; }
+  .sm\:mx-10 {
+    margin-left: 10px !important;
+    margin-right: 10px !important; } }
+
+@media (min-width: 1024px) {
+  .md\:m-10 {
+    margin: 10px !important; }
+  .md\:mt-10 {
+    margin-top: 10px !important; }
+  .md\:mx-10 {
+    margin-left: 10px !important;
+    margin-right: 10px !important; } }
+
+@media (min-width: 1200px) {
+  .lg\:m-10 {
+    margin: 10px !important; }
+  .lg\:mt-10 {
+    margin-top: 10px !important; }
+  .lg\:mx-10 {
+    margin-left: 10px !important;
+    margin-right: 10px !important; } }

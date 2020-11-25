@@ -4,7 +4,7 @@
     $values         : map-get($config, 'values');
     $breakpoints    : map-get($config, 'breakponts');
     $variants       : map-get($config, 'variants');
-    $resposnive-variants   : map-get($config, 'resposnive-variants');
+    $responsiive-variants   : map-get($config, 'responsiive-variants');
     $separator: '\\:';
 
     $prefixes    : map-get($config, 'prefix');
@@ -83,11 +83,11 @@
                 // -------------------------------------------
 
                 // //  RESPONSIVE WITH VARIANTS
-                @if($resposnive-variants){
+                @if($responsiive-variants){
 
                     @debug('PASSEI 2');
 
-                    @each $variant in $resposnive-variants {
+                    @each $variant in $responsiive-variants {
 
                         @for $i from 1 through length($prefixes) {
 
